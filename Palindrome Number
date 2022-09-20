@@ -3,17 +3,18 @@ class Solution
 public:
     bool isPalindrome(int x)
     {
-        int y = 0;
-        if (x < 0 || x > INT_MAX)
+        long int y = 0;
+        if (x < 0 || x >= INT_MAX)
             return false;
         int num = x;
-        while (x != 0)
+        while (x > 0)
         {
-            y = (y * 10) + (x % 10);
+            y = (y * 10);
+            y += (x % 10);
             x = x / 10;
-            if (num == y)
-                return true;
         }
+        if (num == y)
+            return true;
 
         return 0;
     }
